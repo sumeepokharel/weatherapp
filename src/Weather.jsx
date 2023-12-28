@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./weather.module.css";
+import styles from "./App.module.css";
 
 function App() {
   const [city, setCity] = useState("");
@@ -31,47 +31,50 @@ function App() {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.weatherContainer}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Enter city name"
           value={city}
           onChange={handleCityChange}
+          className={styles.input}
         />
-        <button type="submit">Get Weather</button>
+        <button type="submit" className={styles.button}>
+          Get Weather
+        </button>
       </form>
 
       {weatherData && (
-        <div className="container">
-          <div className="top">
-            <div className="location">
+        <div className={styles.container}>
+          <div className={styles.top}>
+            <div className={styles.location}>
               <p>{weatherData.name}</p>
             </div>
-            <div className="temp">
+            <div className={styles.temp}>
               {weatherData.main ? <h1>{weatherData.main.temp}°F</h1> : null}
             </div>
-            <div className="description">
+            <div className={styles.description}>
               {weatherData.weather ? (
                 <p>{weatherData.weather[0].main}</p>
               ) : null}
             </div>
           </div>
-          <div className="bottom">
-            <div className="feels">
+          <div className={styles.bottom}>
+            <div className={styles.feels}>
               {weatherData.main ? (
-                <p className="bold">{weatherData.main.feels_like}°F</p>
+                <p className={styles.bold}>{weatherData.main.feels_like}°F</p>
               ) : null}
             </div>
-            <div className="humidity">
+            <div className={styles.humidity}>
               {weatherData.main ? (
-                <p className="bold">{weatherData.main.humidity}%</p>
+                <p className={styles.bold}>{weatherData.main.humidity}%</p>
               ) : null}
             </div>
-            <div className="wind">
+            <div className={styles.wind}>
               {weatherData.wind ? (
                 <>
-                  <p className="bold">{weatherData.wind.speed}MPH</p>
+                  <p className={styles.bold}>{weatherData.wind.speed}MPH</p>
                   <p>Wind Speed</p>
                 </>
               ) : null}
@@ -79,7 +82,7 @@ function App() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
