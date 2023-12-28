@@ -1,0 +1,22 @@
+.weather-container {
+  background-color: rgb(137, 34, 96);
+  text-align: center;
+  margin-top: 20px;
+}
+
+.input-container {
+  margin-bottom: 20px;
+  color: aqua;
+}
+
+.input-field {
+  color: aqua;
+  background-color: blue;
+  padding: 8px;
+  margin-right: 8px;
+}
+
+.result-container {
+  margin-top: 20px;
+  color: aquamarine;
+}
